@@ -68,7 +68,6 @@ function NumberCheck() {
         return;
     }
 
-    number = parseInt(number);
 // even/odd number
     if (number % 2 === 0) {
         result.innerText = number + " is Even Number";
@@ -79,7 +78,7 @@ function NumberCheck() {
     }
 
 
-    // Prime / Not Prime
+    // Prime or not Prime num
     var Prime = true;
 
     if (number <= 1) {
