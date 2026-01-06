@@ -47,11 +47,10 @@ function Password() {
     }
 
 }
-
-
-
-
 // end
+
+
+
 
 
 // check number
@@ -60,15 +59,17 @@ function Password() {
 function NumberCheck() {
     var number = document.getElementById('num').value
     var result = document.getElementById('evenOdd')
+    var primeNumber = document.getElementById("prime");
 
     if (number === "") {
         result.innerText = "Please enter a number";
         result.className = "red";
+        primeNumber.innerText = ""
         return;
     }
 
-    // number = parseInt(number);
-
+    number = parseInt(number);
+// even/odd number
     if (number % 2 === 0) {
         result.innerText = number + " is Even Number";
         result.className = "green";
@@ -76,5 +77,27 @@ function NumberCheck() {
         result.innerText = number + " is Odd Number";
         result.className = "red";
     }
-}
 
+
+    // Prime / Not Prime
+    var Prime = true;
+
+    if (number <= 1) {
+        Prime = false;
+    } else {
+        for (var i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i === 0) {
+                Prime = false;
+                break;
+            }
+        }
+    }
+
+    if (Prime) {
+        primeNumber.innerText = number + " is Prime Number";
+        primeNumber.className = "green";
+    } else {
+        primeNumber.innerText = number + " is Not Prime Number";
+        primeNumber.className = "red";
+    }
+}
